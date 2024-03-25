@@ -15,9 +15,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg flex justify-between p-6">
+            <div
+                class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg flex justify-between p-6 flex-wrap">
                 @foreach ($projects as $projectData)
-                    <div class="card flex items-center gap-4 flex-col w-[250px] bg-zinc-800  text-white p-3 rounded-xl">
+                    <div
+                        class="card flex items-center gap-4 flex-col w-[250px] bg-zinc-800  text-white p-3 rounded-xl  my-4">
                         <img src="{{ $projectData['thumb'] }}" class="w-[200px]">
                         <div class="flex items-center gap-2">
                             <h2 class="text-xl font-semibold"> {{ $projectData['title'] }}</h2>
@@ -28,9 +30,9 @@
                             {{ $projectData['description'] }}
                         </p>
 
-                        <div class="actions">
-                            <a href=""> Edit </a>
-                            <a href=""> Delete </a>
+                        <div class="actions flex gap-2 items-center">
+                            <a href="" class="bg-yellow-600 rounded-lg w-[80px] py-1 text-center"> Edit </a>
+                            <a href="" class="bg-red-700 rounded-lg w-[80px] py-1 text-center"> Delete </a>
                         </div>
 
                     </div>

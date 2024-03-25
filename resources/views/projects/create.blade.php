@@ -17,13 +17,21 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+
+            @endif
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg flex justify-between p-6">
                 <form class="max-w-sm" method="POST" action="{{ route('projects.store') }}">
                     @csrf
                     <div class="mb-5">
                         <label for="title" class="block mb-2 text-sm text-gray-900 dark:text-white font-bold">
                             Project Title</label>
-                        <input type="title" id="title" class="{{ $form_classes }}"
+                        <input type="text" name="title" id="title" class="{{ $form_classes }}"
                             placeholder="Inserisci qui il titolo" required />
                     </div>
                     <div class="mb-5">

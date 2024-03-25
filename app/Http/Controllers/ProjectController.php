@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Project; // Assuming you have a Project model
+use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -19,7 +19,16 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        $validated_data = $request->validate(
+            [
+                'title' =>  'required|unique:projects|max:100',
+                'description' => 'max:8192',
+                'thumb' => 'max:250',
+                'stack' => 'nullable'
+            ]
+        );
+        Project::create($validated_data);
+        return redirect()->route('dashboard');
     }
 
     public function show($id)
