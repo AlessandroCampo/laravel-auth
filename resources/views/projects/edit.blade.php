@@ -17,14 +17,14 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            @if ($errors->any())
+            {{-- @if ($errors->any())
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
 
-            @endif
+            @endif --}}
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg flex justify-between p-6">
                 <form class="max-w-sm" method="POST" action="{{ route('projects.update', $project) }}">
                     @csrf
@@ -35,11 +35,21 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
                         <input type="text" name="title" id="title"
                             value="{{ old('title') ?? $project['title'] }}" class="{{ $form_classes }}"
                             placeholder="Inserisci qui il titolo" required />
+                        @error('title')
+                            <div class="text-red-500">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="mb-5">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Project Description </label>
                         <textarea name="description" id="description" cols="30" rows="5" class="{{ $form_classes }}"> {{ old('description') ?: $project['description'] }} </textarea>
+                        @error('description')
+                            <div class="text-red-500">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="mb-5">
                         <label for="stack" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -56,6 +66,11 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
                             Project Thumb </label>
                         <input type="text" name="thumb" id="thumb" class="{{ $form_classes }}"
                             value="{{ old('thumb') ?? $project['thumb'] }}">
+                        @error('thumb')
+                            <div class="text-red-500">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
 

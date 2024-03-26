@@ -25,7 +25,7 @@ class ProjectController extends Controller
             [
                 'title' =>  'required|unique:projects|max:100',
                 'description' => 'max:8192',
-                'thumb' => 'max:250',
+                'thumb' => 'max:250|active_url',
                 'stack' => 'nullable'
             ]
         );
@@ -49,7 +49,7 @@ class ProjectController extends Controller
             [
                 'title' =>  ['required', 'max:100', Rule::unique('projects')->ignore($project->id)],
                 'description' => 'max:8192',
-                'thumb' => 'max:250',
+                'thumb' => 'max:250|active_url',
                 'stack' => 'nullable'
             ]
         );

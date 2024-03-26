@@ -33,12 +33,18 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
                             Project Title</label>
                         <input type="text" name="title" id="title" class="{{ $form_classes }}"
                             placeholder="Inserisci qui il titolo" required />
+                        @error('title')
+                            <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-5">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Project Description </label>
                         <textarea name="description" id="description" cols="30" rows="5" class="{{ $form_classes }}"> {{ old('description') }} </textarea>
                     </div>
+                    @error('description')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                     <div class="mb-5">
                         <label for="stack" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Project Stack </label>
@@ -48,16 +54,15 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
                             <option value="laravel"> Laravel </option>
                         </select>
                     </div>
-                    {{-- <div class="mb-5">
-                        <label for="thumb" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
-                            Project Thumb </label>
-                        <input type="file" name="thumb" id="thumb" class="{{ $form_classes }}">
-                    </div> --}}
+
                     <div class="mb-5">
                         <label for="thumb" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
                             Project Thumb </label>
                         <input type="text" name="thumb" id="thumb" class="{{ $form_classes }}"
                             value="{{ old('thumb') }}">
+                        @error('thumb')
+                            <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
