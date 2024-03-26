@@ -20,7 +20,7 @@
                 @foreach ($projects as $projectData)
                     <div
                         class="card flex items-center gap-4 flex-col w-[250px] bg-zinc-800  text-white p-3 rounded-xl  my-4">
-                        <img src="{{ $projectData['thumb'] }}" class="w-[200px]">
+                        <img src="{{ $projectData['thumb'] }}" class="w-[200px] h-[100px]">
                         <div class="flex items-center gap-2">
                             <h2 class="text-xl font-semibold"> {{ $projectData['title'] }}</h2>
                             <img src="{{ Vite::asset('resources/img/vue.png') }}" class="w-[30px]">
@@ -31,8 +31,17 @@
                         </p>
 
                         <div class="actions flex gap-2 items-center">
-                            <a href="" class="bg-yellow-600 rounded-lg w-[80px] py-1 text-center"> Edit </a>
-                            <a href="" class="bg-red-700 rounded-lg w-[80px] py-1 text-center"> Delete </a>
+                            <a href="{{ route('projects.edit', ['project' => $projectData]) }}"
+                                class="bg-yellow-600 rounded-lg w-[80px] py-1 text-center">Edit</a>
+
+                            <form action="{{ route('projects.destroy', ['project' => $projectData]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="bg-red-700 rounded-lg w-[80px] py-1 text-center">Delete</button>
+                            </form>
+
+
                         </div>
 
                     </div>

@@ -31,8 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('projects', ProjectController::class);
-});
+})->name('dashboard');
+
 
 require __DIR__ . '/auth.php';

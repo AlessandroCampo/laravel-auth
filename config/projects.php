@@ -5,7 +5,7 @@ return [
         'title' => 'Chat app',
         'description' => "Generica applicazione che permette all'utente di scambiare messaggi in tempo reale con altri utenti",
         'stack' => 'Vue, Firebase',
-        'thumb' => 'https://www.customerly.io/static/15dd7b15ae157c83e055a673513aa7ad/c5308/live-chat-mobile-apps-sdk-chat-ios-android.png'
+        'thumb' => 'https://www.uxcrush.com/wp-content/uploads/2020/07/desktop-chat-app-figma-ui-screen-1014x487.jpg'
     ],
     [
         'title' => 'Watch or pass',
